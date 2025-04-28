@@ -1,0 +1,314 @@
+/* -------------- Animaciones de entrada -------------- */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  /* -------------- Timeline (cronología) -------------- */
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 2rem 0;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #0d6efd;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+  }
+  
+  .timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 50%;
+  }
+  
+  .timeline-content {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    background: #0d6efd;
+    border-radius: 50%;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content::after {
+    right: -6px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content::after {
+    left: -6px;
+  }
+  
+  /* Responsive Timeline */
+  .timeline-content {
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
+    color: #f8f9fa; /* Letras blancas */
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra para mejorar lectura */
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 8px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      padding-left: 2.5rem;
+      padding-right: 1rem;
+      text-align: left !important;
+      left: 0 !important;
+    }
+  
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+      left: 0;
+    }
+  }
+  
+  /* -------------- Fondo principal y overlay -------------- */
+  body {
+    background-color: #000; /* Negro puro */
+    background-image: none; /* Sin imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white; /* Letras blancas */
+  }
+  
+  .background-overlay {
+    background-color: transparent; /* Totalmente transparente */
+    min-height: 100vh;
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* -------------- Hologram Cards -------------- */
+  .hologram-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hologram-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+  }
+  
+  /* -------------- Navbar -------------- */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(5px);
+    z-index: 1050; /* ✅ Super alto para estar por encima de todo */
+    position: relative; /* ✅ Necesario para que el z-index funcione */
+  }
+  
+  /* -------------- Fade-in imágenes -------------- */
+  .fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease forwards;
+  }
+  
+  @keyframes fadeInAnimation {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* -------------- Estrellas (🌟 normales) -------------- */
+  .stars-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(200, 220, 255, 0.8); /* azul claro semitransparente */
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite alternate;
+  }
+  
+  /* Twinkle animación para las estrellas */
+  @keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+  }
+  
+  /* Estrellas en posiciones fijas de ejemplo */
+  .star:nth-child(1) { top: 10%; left: 20%; }
+  .star:nth-child(2) { top: 25%; left: 40%; }
+  .star:nth-child(3) { top: 5%; left: 70%; }
+  .star:nth-child(4) { top: 50%; left: 60%; }
+  .star:nth-child(5) { top: 80%; left: 30%; }
+  .star:nth-child(6) { top: 90%; left: 80%; }
+  .star:nth-child(7) { top: 30%; left: 10%; }
+  .star:nth-child(8) { top: 70%; left: 90%; }
+  .star:nth-child(9) { top: 60%; left: 20%; }
+  .star:nth-child(10) { top: 15%; left: 75%; }
+  
+  /* -------------- Estrellas fugaces (🌠) -------------- */
+  .shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(45deg, white, rgba(255,255,255,0));
+    transform: rotate(45deg);
+    top: -10px;
+    animation: shoot linear infinite;
+  }
+  
+  /* Animación de shooting star */
+  @keyframes shoot {
+    0% {
+      transform: translateX(0) translateY(0) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-500px) translateY(500px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Shooting stars randomizadas */
+  .shooting-star:nth-child(101) {
+    left: 20%;
+    animation-duration: 3s;
+    animation-delay: 2s;
+  }
+  .shooting-star:nth-child(102) {
+    left: 50%;
+    animation-duration: 4s;
+    animation-delay: 5s;
+  }
+  .shooting-star:nth-child(103) {
+    left: 70%;
+    animation-duration: 5s;
+    animation-delay: 8s;
+  }
+  .shooting-star:nth-child(104) {
+    left: 30%;
+    animation-duration: 4.5s;
+    animation-delay: 12s;
+  }
+  .shooting-star:nth-child(105) {
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 15s;
+  }
+  /* -------------- Star Wars Intro Animation -------------- */
+  .intro-container {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    perspective: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+  }
+  
+  .intro-text {
+    font-size: 2rem;
+    text-align: center;
+    transform: rotateX(20deg);
+    animation: crawl 60s linear infinite;
+  }
+  
+  @keyframes crawl {
+    0% {
+      transform: rotateX(20deg) translateY(100%);
+    }
+    100% {
+      transform: rotateX(20deg) translateY(-300%);
+    }
+  }
+  .card-img-top {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 174, 255, 0.7);
+  }
+  .card-title, 
+.card-text {
+  color: #f8f9fa; /* blanco brillante */
+  text-shadow: 1px 1px 5px rgba(0, 174, 255, 0.5); /* leve resplandor azul */
+}
+.starwars-font {
+  font-family: 'Star Jedi', sans-serif;
+}
+.navbar-nav .nav-link {
+  color: #f8f9fa; /* Color blanco estándar */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700; /* Dorado Star Wars */
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Glow dorado */
+}
+.curiosity-card {
+  background: rgba(0, 0, 0, 0.7); /* Fondo negro translúcido */
+  color: #f8f9fa; /* Letras blancas */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Luz azul suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.curiosity-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+}

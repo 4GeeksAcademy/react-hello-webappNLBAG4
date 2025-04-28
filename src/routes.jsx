@@ -1,30 +1,37 @@
-// Import necessary components and functions from react-router-dom.
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Demo from "./pages/Demo.jsx";
+import Single from "./pages/Single.jsx";
+import Layout from "./pages/Layout.jsx";
 
-import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
-} from "react-router-dom";
-import { Layout } from "./pages/Layout";
-import { Home } from "./pages/Home";
-import { Single } from "./pages/Single";
-import { Demo } from "./pages/Demo";
+// NUEVAS IMPORTACIONES
+import Personajes from "./pages/Personajes.jsx";
+import Planetas from "./pages/Planetas.jsx";
+import Curiosidades from "./pages/Curiosidades.jsx";
+import Cronologia from "./pages/Cronologia.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
-export const router = createBrowserRouter(
-    createRoutesFromElements(
-    // CreateRoutesFromElements function allows you to build route elements declaratively.
-    // Create your routes here, if you want to keep the Navbar and Footer in all views, add your new routes inside the containing Route.
-    // Root, on the contrary, create a sister Route, if you have doubts, try it!
-    // Note: keep in mind that errorElement will be the default page when you don't get a route, customize that page to make your project more attractive.
-    // Note: The child paths of the Layout element replace the Outlet component with the elements contained in the "element" attribute of these child paths.
+const AppRoutes = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/single/:type/:theid" element={<Single />} />
+          
+          {/* NUEVAS RUTAS */}
+          <Route path="/personajes" element={<Personajes />} />
+          <Route path="/planetas" element={<Planetas />} />
+          <Route path="/curiosidades" element={<Curiosidades />} />
+          <Route path="/cronologia" element={<Cronologia />} />
 
-      // Root Route: All navigation will start from here.
-      <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
+          {/* Ruta para página no encontrada */}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-        {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Home />} />
-        <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
-        <Route path="/demo" element={<Demo />} />
-      </Route>
-    )
-);
+export default AppRoutes;

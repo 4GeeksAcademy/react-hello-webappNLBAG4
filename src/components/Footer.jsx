@@ -1,11 +1,16 @@
-export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Check the <a target="_blank" href="https://4geeks.com/docs/start/start-react-advanced-project">template documentation</a> <i className="fa-solid fa-file"></i> for help.
-		</p>
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
-	</footer>
-);
+const Footer = () => {
+	return (
+	  <footer className="text-center py-4 mt-5" style={{ backgroundColor: "rgba(0,0,0,0.7)", backdropFilter: "blur(5px)", color: "#f8f9fa", marginTop: "auto" }}>
+		<div className="container">
+		  <p className="mb-1">
+			May the Force be with you <i className="fas fa-jedi"></i>
+		  </p>
+		  <p style={{ fontSize: "0.9rem" }}>
+			© {new Date().getFullYear()} Star Wars Blog - Hecho con amor galáctico.
+		  </p>
+		</div>
+	  </footer>
+	);
+  };
+  
+  export default Footer;
