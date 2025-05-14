@@ -1,4 +1,3 @@
-import { getImageUrl } from "../data/imageCatalog";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import Card from "../components/Card";
 
@@ -11,11 +10,13 @@ const Personajes = () => {
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {store.characters.map((personaje) => (
           <div className="col" key={personaje.id}>
-           <Card
-  title={personaje.name}
-  imageUrl={personaje.imageUrl}
-  linkUrl={`/single/character/${personaje.id}`}
-/>
+            <Card
+              id={personaje.id}
+              title={personaje.name}
+              imageUrl={personaje.imageUrl}
+              linkUrl={`/single/character/${personaje.id}`}
+              type="character"
+            />
           </div>
         ))}
       </div>

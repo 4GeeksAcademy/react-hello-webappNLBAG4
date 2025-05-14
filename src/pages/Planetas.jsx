@@ -1,4 +1,3 @@
-import { getImageUrl } from "../data/imageCatalog";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import Card from "../components/Card";
 
@@ -12,10 +11,12 @@ const Planetas = () => {
         {store.planets.map((planeta) => (
           <div className="col" key={planeta.id}>
             <Card
-  title={planeta.name}
-  imageUrl={planeta.imageUrl}
-  linkUrl={`/single/planet/${planeta.id}`}
-/>
+              id={planeta.id}
+              title={planeta.name}
+              imageUrl={planeta.imageUrl}
+              linkUrl={`/single/planet/${planeta.id}`}
+              type="planet"
+            />
           </div>
         ))}
       </div>

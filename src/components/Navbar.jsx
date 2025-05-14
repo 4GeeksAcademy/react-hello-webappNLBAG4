@@ -2,16 +2,26 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark fixed-top" style={{ backgroundColor: "rgba(0,0,0,0.8)", backdropFilter: "blur(6px)", zIndex: "1050" }}>
+    <nav
+      className="navbar navbar-expand-lg navbar-dark fixed-top"
+      style={{ backgroundColor: "rgba(0,0,0,0.8)", backdropFilter: "blur(6px)", zIndex: "1050" }}
+    >
       <div className="container">
         <Link className="navbar-brand starwars-font" to="/">
           <i className="fas fa-jedi me-2"></i> Star Wars Blog
         </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto d-flex align-items-center">
             <li className="nav-item">
               <Link className="nav-link" to="/personajes">
                 <i className="fas fa-user-astronaut me-1"></i> Personajes
@@ -30,6 +40,11 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/cronologia">
                 <i className="fas fa-clock me-1"></i> Cronología
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/favoritos">
+                <i className="fas fa-heart me-1"></i> Favoritos
               </Link>
             </li>
           </ul>

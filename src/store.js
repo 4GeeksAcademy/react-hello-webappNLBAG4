@@ -1,5 +1,6 @@
 const initialState = {
   message: null,
+  favorites: [],
 
   characters: [
     {
@@ -138,4 +139,23 @@ curiosities: [
   ]
 };
 
-export default initialState;
+export const initialStore = () => initialState;
+
+export default function storeReducer(state, action) {
+  switch (action.type) {
+    case "toggle_favorite":
+      const exists = state.favorites.find(
+        fav => fav.type === action.payload.type && fav.id === action.payload.id
+      );
+      return {
+        ...state,
+        favorites: exists
+          ? state.favorites.filter(
+              fav => !(fav.type === action.payload.type && fav.id === action.payload.id)
+            )
+          : [...state.favorites, action.payload],
+      };
+    default:
+      return state;
+  }
+}
